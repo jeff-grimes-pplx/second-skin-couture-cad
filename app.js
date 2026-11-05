@@ -1544,18 +1544,21 @@
         camera.aspect = nw / nh;
         camera.updateProjectionMatrix();
         renderer.setSize(nw, nh, false);
+        renderer.render(scene, camera);
+        update3DCallouts();
       }
     });
     resizeObserver.observe(stage);
   }
 
-  function animate3DStudio() {
-    requestAnimationFrame(animate3DStudio);
-    state.simTime += 0.016;
+  let _lastGeoSig = '';
+  function stepStudioTick(dtScale = 1) {
+    state.simTime += 0.016 * dtScale;
 
     // Smoothly interpolate explode slider if triggered via mode button
     if (Math.abs(state.explodeAmount - state.targetExplode) > 0.002) {
-      state.explodeAmount += (state.targetExplode - state.explodeAmount) * 0.08;
+      const alpha = Math.min(1, 0.08 * dtScale);
+      state.explodeAmount += (state.targetExplode - state.explodeAmount) * alpha;
       const slider = document.getElementById('slider-explode');
       if (slider) slider.value = Math.round(state.explodeAmount * 100);
       document.getElementById('readout-explode').textContent =
@@ -1564,22 +1567,29 @@
 
     // Decay settle pulse
     if (state.settlePulse > 0.001) {
-      state.settlePulse *= 0.96;
+      state.settlePulse *= Math.pow(0.96, dtScale);
+    } else {
+      state.settlePulse = 0;
     }
 
     // Orbit rotation in turntable mode
     if (state.simMode === 'turntable' && !camOrbit.isDragging) {
-      camOrbit.targetTheta += 0.0045;
+      camOrbit.targetTheta += 0.0045 * dtScale;
     }
 
     const walkPhase = state.simMode === 'runway' ? state.simTime * 3.6 : 0.0;
-    update3DGownGeometry(walkPhase);
+    const geoSig = `${state.neckline}_${state.train}_${state.size}_${state.silk}_${state.shaderMode}_${state.selectedGore}_${state.showSeamLines}_${walkPhase.toFixed(3)}_${state.explodeAmount.toFixed(3)}_${state.settlePulse.toFixed(3)}`;
+    if (geoSig !== _lastGeoSig) {
+      _lastGeoSig = geoSig;
+      update3DGownGeometry(walkPhase);
+    }
 
     // Smooth camera interpolation
-    camOrbit.theta += (camOrbit.targetTheta - camOrbit.theta) * 0.1;
-    camOrbit.phi += (camOrbit.targetPhi - camOrbit.phi) * 0.1;
-    camOrbit.radius += (camOrbit.targetRadius - camOrbit.radius) * 0.1;
-    camOrbit.lookY += (camOrbit.targetLookY - camOrbit.lookY) * 0.1;
+    const camAlpha = Math.min(1, 0.1 * dtScale);
+    camOrbit.theta += (camOrbit.targetTheta - camOrbit.theta) * camAlpha;
+    camOrbit.phi += (camOrbit.targetPhi - camOrbit.phi) * camAlpha;
+    camOrbit.radius += (camOrbit.targetRadius - camOrbit.radius) * camAlpha;
+    camOrbit.lookY += (camOrbit.targetLookY - camOrbit.lookY) * camAlpha;
 
     if (camera && renderer) {
       camera.position.x = camOrbit.radius * Math.sin(camOrbit.phi) * Math.sin(camOrbit.theta);
@@ -1590,6 +1600,17 @@
       renderer.render(scene, camera);
       update3DCallouts();
     }
+  }
+
+  window.__manualStep = false;
+  window.__stepStudio = function (dtScale = 1) {
+    stepStudioTick(dtScale);
+  };
+
+  function animate3DStudio() {
+    if (window.__manualStep) return;
+    requestAnimationFrame(animate3DStudio);
+    stepStudioTick();
   }
 
   // ==========================================================================
