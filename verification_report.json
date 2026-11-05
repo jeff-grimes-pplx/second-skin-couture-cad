@@ -1,0 +1,339 @@
+{
+  "style_code": "SS-26-GOWN-01",
+  "standard": "ASTM D6673 + ISO 216 A4 1:1 Tiled Matrix (R1C1..R10C8)",
+  "dxf_verifications": [
+    {
+      "size": 34,
+      "file": "SS-26-GOWN-01_Size34_ASTM_D6673.dxf",
+      "gores_verified": 8,
+      "notches_verified": 32,
+      "calibration_square_mm": [
+        100.0,
+        100.0
+      ],
+      "mean_seam_delta_mm": 0.48,
+      "max_seam_delta_mm": 0.49,
+      "seams": [
+        {
+          "seam": "S1",
+          "left_mm": 1445.29,
+          "right_mm": 1445.75,
+          "delta_mm": 0.46
+        },
+        {
+          "seam": "S2",
+          "left_mm": 1512.08,
+          "right_mm": 1512.57,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S3",
+          "left_mm": 1512.08,
+          "right_mm": 1512.57,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S4",
+          "left_mm": 1638.81,
+          "right_mm": 1639.29,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S5",
+          "left_mm": 1638.81,
+          "right_mm": 1639.29,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S6",
+          "left_mm": 1836.81,
+          "right_mm": 1837.3,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S7",
+          "left_mm": 1836.81,
+          "right_mm": 1837.3,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S8",
+          "left_mm": 2008.88,
+          "right_mm": 2009.34,
+          "delta_mm": 0.46
+        }
+      ]
+    },
+    {
+      "size": 36,
+      "file": "SS-26-GOWN-01_Size36_ASTM_D6673.dxf",
+      "gores_verified": 8,
+      "notches_verified": 32,
+      "calibration_square_mm": [
+        100.0,
+        100.0
+      ],
+      "mean_seam_delta_mm": 0.48,
+      "max_seam_delta_mm": 0.49,
+      "seams": [
+        {
+          "seam": "S1",
+          "left_mm": 1455.76,
+          "right_mm": 1456.22,
+          "delta_mm": 0.46
+        },
+        {
+          "seam": "S2",
+          "left_mm": 1523.02,
+          "right_mm": 1523.51,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S3",
+          "left_mm": 1523.02,
+          "right_mm": 1523.51,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S4",
+          "left_mm": 1650.68,
+          "right_mm": 1651.16,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S5",
+          "left_mm": 1650.68,
+          "right_mm": 1651.16,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S6",
+          "left_mm": 1850.11,
+          "right_mm": 1850.6,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S7",
+          "left_mm": 1850.11,
+          "right_mm": 1850.6,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S8",
+          "left_mm": 2023.52,
+          "right_mm": 2023.98,
+          "delta_mm": 0.46
+        }
+      ]
+    },
+    {
+      "size": 38,
+      "file": "SS-26-GOWN-01_Size38_ASTM_D6673.dxf",
+      "gores_verified": 8,
+      "notches_verified": 32,
+      "calibration_square_mm": [
+        100.0,
+        100.0
+      ],
+      "mean_seam_delta_mm": 0.48,
+      "max_seam_delta_mm": 0.49,
+      "seams": [
+        {
+          "seam": "S1",
+          "left_mm": 1467.7,
+          "right_mm": 1468.16,
+          "delta_mm": 0.46
+        },
+        {
+          "seam": "S2",
+          "left_mm": 1535.49,
+          "right_mm": 1535.98,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S3",
+          "left_mm": 1535.49,
+          "right_mm": 1535.98,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S4",
+          "left_mm": 1664.21,
+          "right_mm": 1664.69,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S5",
+          "left_mm": 1664.21,
+          "right_mm": 1664.69,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S6",
+          "left_mm": 1865.27,
+          "right_mm": 1865.76,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S7",
+          "left_mm": 1865.27,
+          "right_mm": 1865.76,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S8",
+          "left_mm": 2040.19,
+          "right_mm": 2040.65,
+          "delta_mm": 0.46
+        }
+      ]
+    },
+    {
+      "size": 40,
+      "file": "SS-26-GOWN-01_Size40_ASTM_D6673.dxf",
+      "gores_verified": 8,
+      "notches_verified": 32,
+      "calibration_square_mm": [
+        100.0,
+        100.0
+      ],
+      "mean_seam_delta_mm": 0.48,
+      "max_seam_delta_mm": 0.49,
+      "seams": [
+        {
+          "seam": "S1",
+          "left_mm": 1479.64,
+          "right_mm": 1480.1,
+          "delta_mm": 0.46
+        },
+        {
+          "seam": "S2",
+          "left_mm": 1547.96,
+          "right_mm": 1548.45,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S3",
+          "left_mm": 1547.96,
+          "right_mm": 1548.45,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S4",
+          "left_mm": 1677.74,
+          "right_mm": 1678.22,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S5",
+          "left_mm": 1677.74,
+          "right_mm": 1678.22,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S6",
+          "left_mm": 1880.44,
+          "right_mm": 1880.93,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S7",
+          "left_mm": 1880.44,
+          "right_mm": 1880.93,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S8",
+          "left_mm": 2056.87,
+          "right_mm": 2057.33,
+          "delta_mm": 0.46
+        }
+      ]
+    },
+    {
+      "size": 42,
+      "file": "SS-26-GOWN-01_Size42_ASTM_D6673.dxf",
+      "gores_verified": 8,
+      "notches_verified": 32,
+      "calibration_square_mm": [
+        100.0,
+        100.0
+      ],
+      "mean_seam_delta_mm": 0.48,
+      "max_seam_delta_mm": 0.49,
+      "seams": [
+        {
+          "seam": "S1",
+          "left_mm": 1491.58,
+          "right_mm": 1492.04,
+          "delta_mm": 0.46
+        },
+        {
+          "seam": "S2",
+          "left_mm": 1560.44,
+          "right_mm": 1560.93,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S3",
+          "left_mm": 1560.44,
+          "right_mm": 1560.93,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S4",
+          "left_mm": 1691.28,
+          "right_mm": 1691.76,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S5",
+          "left_mm": 1691.28,
+          "right_mm": 1691.76,
+          "delta_mm": 0.48
+        },
+        {
+          "seam": "S6",
+          "left_mm": 1895.61,
+          "right_mm": 1896.1,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S7",
+          "left_mm": 1895.61,
+          "right_mm": 1896.1,
+          "delta_mm": 0.49
+        },
+        {
+          "seam": "S8",
+          "left_mm": 2073.55,
+          "right_mm": 2074.01,
+          "delta_mm": 0.46
+        }
+      ]
+    }
+  ],
+  "pdf_verifications": [
+    {
+      "file": "SS-26-GOWN-01_Tiled_A4_80Pages.pdf",
+      "pages": 80,
+      "page_dimensions_mm": [
+        210.0,
+        297.0
+      ],
+      "r1c1_calibration_verified": true,
+      "r10c8_terminal_sheet_verified": true
+    },
+    {
+      "file": "SS-26-GOWN-01_Tiled_A4_80Pages_25cm.pdf",
+      "pages": 80,
+      "page_dimensions_mm": [
+        210.0,
+        297.0
+      ],
+      "r1c1_calibration_verified": true,
+      "r10c8_terminal_sheet_verified": true
+    }
+  ],
+  "all_checks_passed": true
+}

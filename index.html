@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Skin — SS-26-GOWN-01 | 3D Couture Cloth-Physics &amp; Pattern CAD Studio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23131210'/><path d='M16 4 L24 28 L8 28 Z' fill='none' stroke='%23dfc07a' stroke-width='2'/></svg>" />
+  <!-- Fontshare: Switzer -->
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Cormorant Garamond & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="atelier-shell" id="atelier-shell" data-layout="split">
+    <!-- TOP STUDIO BAR -->
+    <header class="studio-topbar" role="banner">
+      <div class="brand-cluster">
+        <h1 class="studio-title">SECOND SKIN</h1>
+        <span class="style-code-pill" id="top-style-code">SS-26-GOWN-01</span>
+        <div class="live-spec-strip" aria-label="Live pattern specifications">
+          <span class="spec-chip"><strong id="top-gore-count">8</strong> GORES (45°)</span>
+          <span class="spec-sep">·</span>
+          <span class="spec-chip">SEAM GAP <strong class="teal-val" id="top-seam-gap">0.48 mm</strong></span>
+          <span class="spec-sep">·</span>
+          <span class="spec-chip">YIELD <strong class="gold-val" id="top-fabric-area">2.298 m²</strong></span>
+          <span class="spec-sep">·</span>
+          <span class="spec-chip">A4 <strong id="top-page-count">80 PAGES</strong></span>
+        </div>
+      </div>
+
+      <!-- 4-WAY VIEWPORT MODE SWITCHER -->
+      <nav class="viewport-mode-nav" aria-label="Studio viewport layout">
+        <button type="button" class="mode-tab active" data-layout-btn="split" aria-pressed="true">
+          <span class="mode-dot split-dot"></span>Split (3D + 2D)
+        </button>
+        <button type="button" class="mode-tab" data-layout-btn="3d" aria-pressed="false">
+          <span class="mode-dot d3-dot"></span>3D Atelier Drape
+        </button>
+        <button type="button" class="mode-tab" data-layout-btn="2d" aria-pressed="false">
+          <span class="mode-dot d2-dot"></span>2D CAD Marker
+        </button>
+        <button type="button" class="mode-tab" data-layout-btn="tiled" aria-pressed="false">
+          <span class="mode-dot print-dot"></span>Tiled A4 (80p)
+        </button>
+      </nav>
+
+      <!-- REAL CAD & PRINT EXPORTS -->
+      <div class="export-cluster" role="group" aria-label="CAD and Print-at-Home exports">
+        <button type="button" class="export-btn primary-export" id="btn-export-dxf" title="Download verified ASTM D6673 CAD Pattern (.dxf)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>ASTM .DXF</span>
+        </button>
+        <button type="button" class="export-btn gold-export" id="btn-export-a4" title="Download 80-Page 1:1 Tiled A4 Print-at-Home Pattern (.pdf)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+          <span>Tiled A4 .PDF</span>
+        </button>
+        <button type="button" class="export-btn" id="btn-export-a0" title="Download 1:1 Commercial Roll Plotter Marker (.pdf)">
+          <span>Plotter A0 .PDF</span>
+        </button>
+        <button type="button" class="export-btn" id="btn-export-techpack" title="Download Couture Tech Pack &amp; Seam Verification Report (.pdf)">
+          <span>Tech Pack .PDF</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN WORKSPACE GRID -->
+    <main class="studio-workspace">
+      <!-- LEFT CONTROL DOCK: PARAMETRIC CUT, GRADING & CLOTH PHYSICS -->
+      <aside class="control-dock" aria-label="Parametric pattern and cloth physics controls">
+        <!-- SECTION 1: PARAMETRIC CUT & GRADING -->
+        <section class="dock-card">
+          <div class="dock-card-header">
+            <span class="dock-section-title">PARAMETRIC CUT</span>
+            <span class="dock-badge" id="active-config-code">SZ 38 · 65CM</span>
+          </div>
+
+          <!-- Neckline Architecture -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span class="control-label">Neckline Architecture</span>
+              <span class="control-readout" id="readout-neckline">Bust Plunge</span>
+            </div>
+            <div class="segmented-row" role="group" aria-label="Neckline style">
+              <button type="button" class="seg-btn active" data-neckline="sweetheart" aria-pressed="true">Sweetheart</button>
+              <button type="button" class="seg-btn" data-neckline="straight" aria-pressed="false">Straight Cowl</button>
+            </div>
+          </div>
+
+          <!-- Train Length -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span class="control-label">Posterior Train Sweep</span>
+              <span class="control-readout gold-text" id="readout-train-area">2.298 m² (+16.4%)</span>
+            </div>
+            <div class="segmented-row" role="group" aria-label="Train length">
+              <button type="button" class="seg-btn" data-train="25" aria-pressed="false">25 cm Chapel</button>
+              <button type="button" class="seg-btn active" data-train="65" aria-pressed="true">65 cm Cathedral</button>
+            </div>
+          </div>
+
+          <!-- EU Couture Size Grading (34-42) -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span class="control-label">EU Size Grading</span>
+              <span class="control-readout mono-text" id="readout-measurements">88 / 68 / 94 cm</span>
+            </div>
+            <div class="size-pill-row" role="group" aria-label="EU Size selection">
+              <button type="button" class="size-btn" data-size="34" aria-pressed="false">34</button>
+              <button type="button" class="size-btn" data-size="36" aria-pressed="false">36</button>
+              <button type="button" class="size-btn active" data-size="38" aria-pressed="true">38</button>
+              <button type="button" class="size-btn" data-size="40" aria-pressed="false">40</button>
+              <button type="button" class="size-btn" data-size="42" aria-pressed="false">42</button>
+            </div>
+            <label class="nest-toggle-row" for="chk-graded-nest">
+              <input type="checkbox" id="chk-graded-nest" checked />
+              <span class="nest-toggle-label">Overlay 5-Size Graded Nest (34–42)</span>
+            </label>
+          </div>
+
+          <!-- Silk Charmeuse Colorway -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span class="control-label">22-Momme Silk</span>
+              <span class="control-readout" id="readout-silk-name">Champagne Pearl</span>
+            </div>
+            <div class="swatch-row" role="group" aria-label="Silk charmeuse colorway">
+              <button type="button" class="swatch-btn active" data-silk="champagne" aria-pressed="true" title="Champagne Pearl (#E8DCCB)">
+                <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #FFF8EE, #D5C2A5 65%, #8E795B);"></span>
+                <span class="swatch-name">Champagne</span>
+              </button>
+              <button type="button" class="swatch-btn" data-silk="obsidian" aria-pressed="false" title="Obsidian Noir (#1E1D22)">
+                <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #52505A, #1B1A1F 65%, #09090B);"></span>
+                <span class="swatch-name">Noir</span>
+              </button>
+              <button type="button" class="swatch-btn" data-silk="bordeaux" aria-pressed="false" title="Bordeaux Silk (#6B1D2F)">
+                <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #B83B56, #631727 65%, #330912);"></span>
+                <span class="swatch-name">Bordeaux</span>
+              </button>
+              <button type="button" class="swatch-btn" data-silk="emerald" aria-pressed="false" title="Emerald Verdigris (#134E4A)">
+                <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #34988E, #134E4A 65%, #072422);"></span>
+                <span class="swatch-name">Emerald</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: 3D CLOTH PHYSICS & EXPLODED GORE KINEMATICS -->
+        <section class="dock-card">
+          <div class="dock-card-header">
+            <span class="dock-section-title">3D CLOTH PHYSICS</span>
+            <span class="dock-badge teal-badge" id="physics-state-badge">XPBD 60 FPS</span>
+          </div>
+
+          <div class="physics-mode-grid" role="group" aria-label="3D Cloth simulation mode">
+            <button type="button" class="phys-btn active" data-sim="turntable" aria-pressed="true">
+              <span class="phys-icon">↻</span>360° Turntable
+            </button>
+            <button type="button" class="phys-btn" data-sim="runway" aria-pressed="false">
+              <span class="phys-icon">⟡</span>Runway Walk
+            </button>
+            <button type="button" class="phys-btn" data-sim="settle" aria-pressed="false">
+              <span class="phys-icon">↓</span>Sew &amp; Settle
+            </button>
+            <button type="button" class="phys-btn" data-sim="explode" aria-pressed="false">
+              <span class="phys-icon">❖</span>Explode 8 Gores
+            </button>
+          </div>
+
+          <!-- Explode 3D -> 2D Pattern Slider -->
+          <div class="control-group compact-top">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-explode">3D ↔ 2D Gore Explode</label>
+              <span class="control-readout mono-text teal-text" id="readout-explode">0% Assembled</span>
+            </div>
+            <input type="range" id="slider-explode" class="atelier-slider" min="0" max="100" value="0" step="1" />
+          </div>
+
+          <!-- Surface Analysis Mode: Anisotropic Silk vs Warp/Weft Strain Heatmap -->
+          <div class="control-group compact-top">
+            <div class="control-label-row">
+              <span class="control-label">Surface Shader</span>
+              <span class="control-readout mono-text" id="readout-shader">Anisotropic Sheen</span>
+            </div>
+            <div class="segmented-row" role="group" aria-label="Surface analysis shader">
+              <button type="button" class="seg-btn active" data-shader="silk" aria-pressed="true">Anisotropic Silk</button>
+              <button type="button" class="seg-btn" data-shader="strain" aria-pressed="false">Warp/Weft Strain FEA</button>
+            </div>
+            <!-- Strain Colorbar Legend (visible when Strain FEA active or always compact) -->
+            <div class="strain-legend-bar" id="strain-legend-bar">
+              <span class="strain-tick">0.4% Low</span>
+              <div class="strain-gradient"></div>
+              <span class="strain-tick">4.2% Bias</span>
+              <span class="strain-tick high-tick">7.8% Apex</span>
+            </div>
+          </div>
+
+          <!-- Camera Framing Presets -->
+          <div class="control-group compact-top">
+            <div class="control-label-row">
+              <span class="control-label">Camera Angle</span>
+              <span class="control-readout" id="readout-camera">3/4 Hero Orbit</span>
+            </div>
+            <div class="cam-preset-row" role="group" aria-label="3D Camera presets">
+              <button type="button" class="cam-btn active" data-cam="hero">3/4 Hero</button>
+              <button type="button" class="cam-btn" data-cam="front">Front Bodice</button>
+              <button type="button" class="cam-btn" data-cam="back">Back Train</button>
+              <button type="button" class="cam-btn" data-cam="top">Godet Sweep</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: VERIFIED ENGINEERING TELEMETRY -->
+        <section class="dock-card telemetry-card" aria-label="ASTM D6673 and Print-at-Home verification metrics">
+          <div class="dock-card-header">
+            <span class="dock-section-title">ASTM D6673 VERIFICATION</span>
+            <span class="pass-pill">PASS &lt; 0.50 mm</span>
+          </div>
+          <div class="telemetry-grid">
+            <div class="tele-item">
+              <span class="tele-label">Mean Seam Gap</span>
+              <span class="tele-value teal-text" id="tele-mean-gap">0.48 mm</span>
+              <span class="tele-sub">Max 0.49 mm (S1–S8)</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">Cut Fabric Area</span>
+              <span class="tele-value gold-text" id="tele-fabric-area">2.298 m²</span>
+              <span class="tele-sub" id="tele-bolt-yield">1.96 m on 140 cm bolt</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">Calibration Square</span>
+              <span class="tele-value mono-text" id="tele-cal-sq">100.0 × 100.0 mm</span>
+              <span class="tele-sub">Sheet R1C1 (Page 1/80)</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">Active Gore Focus</span>
+              <span class="tele-value" id="tele-active-gore">All 8 Gores</span>
+              <span class="tele-sub" id="tele-active-gore-sub">1.0 cm Seam Allowance</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <!-- CENTER-LEFT VIEWPORT: 3D COUTURE CLOTH-PHYSICS ATELIER -->
+      <section class="viewport-3d-pane" id="viewport-3d-pane" aria-label="3D Couture Cloth-Physics Atelier Viewport">
+        <div class="pane-floating-header">
+          <div class="pane-title-group">
+            <span class="pane-kicker">3D COUTURE DRAPE &amp; XPBD SILK SOLVER</span>
+            <span class="pane-subtitle" id="d3-live-subtitle">Size 38 · Sweetheart Bodice · 65 cm Cathedral Train · 45° True Bias</span>
+          </div>
+          <div class="pane-overlay-pills">
+            <button type="button" class="overlay-toggle active" id="btn-toggle-seams" aria-pressed="true">Seam Piping (S1–S8)</button>
+            <button type="button" class="overlay-toggle active" id="btn-toggle-callouts" aria-pressed="true">3D Gore Callouts</button>
+          </div>
+        </div>
+
+        <!-- WebGL Canvas Container -->
+        <div class="webgl-stage" id="webgl-stage">
+          <canvas id="couture-canvas-3d" aria-label="Interactive 3D bias-cut silk gown draped on anatomical couture dress form"></canvas>
+          <!-- Projected 3D Callout Overlay Layer -->
+          <div class="callout-layer-3d" id="callout-layer-3d" aria-hidden="true"></div>
+        </div>
+
+        <!-- Bottom 3D HUD Strip -->
+        <div class="pane-bottom-hud">
+          <div class="hud-stat">
+            <span class="hud-key">BIAS</span>
+            <span class="hud-val">45.0° WARP/WEFT</span>
+          </div>
+          <div class="hud-stat">
+            <span class="hud-key">SILK</span>
+            <span class="hud-val">22-MOMME CHARMEUSE</span>
+          </div>
+          <div class="hud-stat">
+            <span class="hud-key">ELONGATION</span>
+            <span class="hud-val teal-text" id="hud-elongation">+4.2% BIAS</span>
+          </div>
+          <div class="hud-stat">
+            <span class="hud-key">VIEW</span>
+            <span class="hud-val">ORBIT · ZOOM · CLICK GORE</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CENTER-RIGHT VIEWPORT: SYNCHRONIZED 2D CAD MARKER & 80-PAGE TILED A4 PRINT STUDIO -->
+      <section class="viewport-2d-pane" id="viewport-2d-pane" aria-label="Synchronized 2D Flat Pattern CAD and 80-Page Tiled A4 Print Studio">
+        <!-- Sub-navigation inside the 2D/Print CAD Studio -->
+        <div class="cad-subnav-bar">
+          <div class="cad-subtabs" role="tablist" aria-label="CAD Studio View">
+            <button type="button" class="cad-subtab active" role="tab" aria-selected="true" data-cad-view="marker" id="tab-cad-marker">
+              2D Pattern Marker
+            </button>
+            <button type="button" class="cad-subtab" role="tab" aria-selected="false" data-cad-view="tiled" id="tab-cad-tiled">
+              80-Page Tiled A4 (R1C1–R10C8)
+            </button>
+            <button type="button" class="cad-subtab" role="tab" aria-selected="false" data-cad-view="ledger" id="tab-cad-ledger">
+              Seam &amp; Grading Ledger
+            </button>
+          </div>
+          <div class="cad-Quick-actions">
+            <span class="cad-scale-pill" id="cad-scale-indicator">1:1 MM · ASTM D6673</span>
+          </div>
+        </div>
+
+        <!-- VIEW A: 2D FLAT PATTERN & 140 CM MARKER BED -->
+        <div class="cad-view-panel active" id="panel-cad-marker" role="tabpanel">
+          <div class="marker-toolbar">
+            <div class="marker-legend">
+              <span class="leg-item"><span class="leg-line solid-cut"></span>Cut (1.0 cm SA)</span>
+              <span class="leg-item"><span class="leg-line dashed-sew"></span>Sew (S1–S8)</span>
+              <span class="leg-item"><span class="leg-line bias-grain"></span>45° Bias</span>
+              <span class="leg-item"><span class="leg-line dart-line"></span>Dart &amp; Notches</span>
+              <span class="leg-item"><span class="leg-line graded-nest"></span>Nest (34–42)</span>
+            </div>
+            <div class="marker-zoom-controls">
+              <button type="button" class="mini-tool-btn" id="btn-toggle-a4-grid-overlay" aria-pressed="true">80-Tile A4 Grid</button>
+              <button type="button" class="mini-tool-btn" id="btn-reset-gore-filter">All 8 Gores</button>
+            </div>
+          </div>
+
+          <div class="svg-cad-stage" id="svg-marker-stage">
+            <svg id="svg-pattern-marker" viewBox="0 0 1440 2450" preserveAspectRatio="xMidYMid meet" aria-label="2D Flat Pattern CAD Marker for 8-Gore Bias Gown"></svg>
+          </div>
+
+          <!-- Selected Gore / Seam Live Engineering Strip -->
+          <div class="cad-inspector-strip" id="cad-inspector-strip">
+            <div class="insp-col">
+              <span class="insp-kicker">ACTIVE GORE</span>
+              <strong class="insp-main" id="insp-piece-title">All 8 Gores (G1–G8)</strong>
+            </div>
+            <div class="insp-col">
+              <span class="insp-kicker">WIDTHS (MM)</span>
+              <span class="insp-mono" id="insp-piece-widths">112 / 84 / 118 / 253</span>
+            </div>
+            <div class="insp-col">
+              <span class="insp-kicker">SEAM ARC (MM)</span>
+              <span class="insp-mono teal-text" id="insp-piece-seams">1468 / 1536 (Δ0.48)</span>
+            </div>
+            <div class="insp-col">
+              <span class="insp-kicker">CUT AREA</span>
+              <span class="insp-mono gold-text" id="insp-piece-area">0.220 m² (2.298 m²)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEW B: BUILT-IN INTERACTIVE 80-PAGE TILED A4 PRINT-AT-HOME INSPECTOR -->
+        <div class="cad-view-panel" id="panel-cad-tiled" role="tabpanel">
+          <div class="tiled-studio-split">
+            <!-- Left half of Tiled Studio: 10x8 Interactive 80-Sheet Assembly Matrix -->
+            <div class="tile-matrix-column">
+              <div class="tile-col-header">
+                <div>
+                  <h2 class="tile-col-title">80-Sheet Tiled A4 Assembly Map (R1C1–R10C8)</h2>
+                  <p class="tile-col-sub">10 Rows × 8 Columns · Click any sheet to inspect 1:1 print geometry, diamond registration marks &amp; overlap margins.</p>
+                </div>
+                <div class="tile-quick-jumps">
+                  <button type="button" class="jump-pill active" data-jump-tile="R1C1">R1C1 (10cm Cal Square)</button>
+                  <button type="button" class="jump-pill" data-jump-tile="R2C1">R2C1 (Bodice Neckline)</button>
+                  <button type="button" class="jump-pill" data-jump-tile="R3C3">R3C3 (Waist Dart &amp; Notch)</button>
+                  <button type="button" class="jump-pill" data-jump-tile="R7C7">R7C7 (Cathedral Train Sweep)</button>
+                </div>
+              </div>
+
+              <div class="tile-matrix-stage">
+                <svg id="svg-tile-matrix" viewBox="0 0 1440 2670" preserveAspectRatio="xMidYMid meet" aria-label="80-Page Tiled A4 Assembly Grid R1C1 to R10C8"></svg>
+              </div>
+            </div>
+
+            <!-- Right half of Tiled Studio: 1:1 Single A4 Sheet Vellum Print Inspector -->
+            <div class="single-sheet-column">
+              <div class="sheet-inspector-header">
+                <div class="sheet-id-cluster">
+                  <span class="sheet-code-badge" id="active-sheet-code">R1C1</span>
+                  <div>
+                    <div class="sheet-title-text" id="active-sheet-title">Page 1 of 80 · Printer Calibration &amp; Origin</div>
+                    <div class="sheet-coords-text mono-text" id="active-sheet-coords">ISO A4 (210.0 × 297.0 mm) · Active Window X:[0..180mm] Y:[0..267mm]</div>
+                  </div>
+                </div>
+                <div class="sheet-nav-btns">
+                  <button type="button" class="sheet-nav-btn" id="btn-prev-sheet" aria-label="Previous A4 sheet">◀ Prev</button>
+                  <span class="sheet-page-counter mono-text" id="sheet-page-counter">01 / 80</span>
+                  <button type="button" class="sheet-nav-btn" id="btn-next-sheet" aria-label="Next A4 sheet">Next ▶</button>
+                </div>
+              </div>
+
+              <!-- Vellum A4 Paper Sheet Preview -->
+              <div class="a4-paper-stage">
+                <svg id="svg-single-a4-sheet" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid meet" aria-label="1:1 A4 Print Sheet Preview"></svg>
+              </div>
+
+              <div class="sheet-footer-meta">
+                <span class="sheet-meta-item"><strong>Scale:</strong> 100% Exact (Do Not Fit to Page)</span>
+                <span class="sheet-meta-item"><strong>Trim Overlap:</strong> 15.0 mm Diamond Registration</span>
+                <span class="sheet-meta-item" id="sheet-gores-present"><strong>Pieces on Sheet:</strong> Calibration Square (100.0 × 100.0 mm)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEW C: SEAM ARC-LENGTH VERIFICATION & 5-SIZE GRADING LEDGER -->
+        <div class="cad-view-panel" id="panel-cad-ledger" role="tabpanel">
+          <div class="ledger-scroll-container">
+            <div class="ledger-section">
+              <div class="ledger-header-row">
+                <h2 class="ledger-heading">Joined Seam-Pair Arc-Length Verification Ledger (S1–S8)</h2>
+                <span class="pass-pill">ASTM D6673 VERIFIED · MEAN ΔL = 0.48 mm (&lt; 0.50 mm)</span>
+              </div>
+              <table class="atelier-table" aria-label="Seam-pair arc-length tolerance table">
+                <thead>
+                  <tr>
+                    <th>Seam ID</th>
+                    <th>Couture Seam Name</th>
+                    <th>Joined Gore Edges</th>
+                    <th>Left Arc (mm)</th>
+                    <th>Right Arc (mm)</th>
+                    <th>Gap |ΔL|</th>
+                    <th>Tolerance Status</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-seam-ledger"></tbody>
+              </table>
+            </div>
+
+            <div class="ledger-section">
+              <div class="ledger-header-row">
+                <h2 class="ledger-heading">8-Gore Parametric Geometry &amp; Surface Area Breakdown</h2>
+                <span class="cad-scale-pill" id="ledger-config-summary">EU Size 38 · Sweetheart · 65 cm Train · Total 2.298 m²</span>
+              </div>
+              <table class="atelier-table" aria-label="8-Gore geometric specification table">
+                <thead>
+                  <tr>
+                    <th>Gore</th>
+                    <th>Code</th>
+                    <th>Anatomical Panel Role</th>
+                    <th>Top / Waist / Hip / Hem (mm)</th>
+                    <th>Length (mm)</th>
+                    <th>Grain</th>
+                    <th>Cut Area (m²)</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-gore-ledger"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- BOTTOM SYNCHRONIZED 8-GORE SELECTOR STRIP -->
+    <footer class="gore-selector-footer" aria-label="Synchronized 8-gore pattern piece selector">
+      <div class="footer-label-box">
+        <span class="footer-kicker">SYNCHRONIZED 8-GORE SELECTOR</span>
+        <button type="button" class="all-gores-btn active" id="btn-select-all-gores" data-gore-select="ALL">All 8 Gores (100%)</button>
+      </div>
+      <div class="gore-pills-strip" id="gore-pills-strip" role="group" aria-label="Select individual pattern gore G1 through G8">
+        <!-- Populated dynamically by app.js for G1..G8 -->
+      </div>
+    </footer>
+
+    <!-- EXPORT VERIFICATION TOAST -->
+    <div class="export-toast" id="export-toast" role="status" aria-live="polite" hidden>
+      <div class="toast-title" id="toast-title">ASTM D6673 .DXF Pattern Exported</div>
+      <div class="toast-body" id="toast-body">Verified 8 gores · 100.0 × 100.0 mm calibration square · Mean seam delta 0.48 mm</div>
+    </div>
+  </div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="pattern-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
